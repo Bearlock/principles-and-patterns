@@ -3,6 +3,12 @@
 
 #include "BaseDecorator.h"
 
+// Decorator that 'filters', i.e writes only,
+// that which fulfills a certain condition
+// Two conditions are provide; ContainsHash
+// and ContainsTenwordsOrLess
+// Takes an additional parameter in the form
+// of a numeric string
 template<typename T>
 class FilterOutput : public BaseDecorator<T> {
 	std::string arg = "";
@@ -23,8 +29,10 @@ public:
     
 	void writeString(const std::string&) {};
     
+    // Unary predicate; checks for "#"
     bool ContainsHash(T t)
     {
+    	// Essentially, 'if query doesn't = NULL, return true'
         if (t.find("#") != std::string::npos) { 
         	return true;
         }
@@ -34,10 +42,17 @@ public:
         }
     }
     
+    // Unary predicate: checks for word length
     bool ContainsTenWordsOrLess(T t)
     {
     	std::string str;
     	int count = 0;
+
+    	// Casts input to a istringstream and reads 
+    	// from it. Super handy in this instance.
+    	// istringstreams read from a string and
+    	// separate by white space. As long as
+    	// White space is found, increments count
         std::istringstream strBreaker(t);
         while(strBreaker >> str) {
         	count++;

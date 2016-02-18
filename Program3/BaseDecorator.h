@@ -3,6 +3,10 @@
 
 #include "Output.h"
 
+// Abstract/base decorator from which
+// All other decorators inherit from;
+// Provides functionality to write to
+// Output * ostream
 template<typename T>
 class BaseDecorator : public Output<T> {
 	Output<T> *output;

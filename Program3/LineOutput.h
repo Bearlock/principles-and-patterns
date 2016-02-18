@@ -3,6 +3,8 @@
 
 #include "BaseDecorator.h"
 
+// Decorator that takes an ostream and
+// appends a newline character to it
 template<typename T>
 class LineOutput : public BaseDecorator<T> {
 public: 

@@ -1,5 +1,10 @@
 #include "BaseDecorator.h"
 
+
+// Decorator that takes an additional
+// ostream as a decorator; allows the
+// ability to write to addtional file
+// via passed in ostream parameter 
 template<typename T>
 class TeeOutput : public BaseDecorator<T> {
 	std::ostream& teeOust;

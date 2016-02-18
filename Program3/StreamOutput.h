@@ -3,7 +3,9 @@
 
 #include "Output.h"
 
-
+// Concrete class that inherits from 
+// Base Output class; writes passed 
+// in ostreams to output file
 template<typename T>
 class StreamOutput : public Output<T> {
     std::ostream& sink;
